@@ -5,8 +5,12 @@
   },
   "extends": [
     "airbnb-typescript/base",
+    "plugin:import/errors",
+    "plugin:import/warnings",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
     "prettier"
   ],
@@ -16,7 +20,10 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "jsx-a11y",
+    "react",
+    "react-hooks"
   ],
   "ignorePatterns": ["*.config.js", "node_modules/", "dist/"],
   "rules": {

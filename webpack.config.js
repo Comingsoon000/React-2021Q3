@@ -1,8 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
 // const CopyPlugin = require('copy-webpack-plugin');
 
@@ -20,15 +22,12 @@ const esLintPlugin = (isDev) => isDev ? [] : [ new ESLintPlugin({ extensions: ["
 
 module.exports = ({develop}) => ({
   mode: develop ? 'development' : 'production',
-  devtool: 'inline-source-map',
+  devtool: develop ? 'inline-source-map': 'source-map',
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[fullhash].js",
     assetModuleFilename: 'assets/[hash][ext]',
-  },
-  optimization: {
-   minimizer: [new UglifyJsPlugin()],
   },
   module: {
     rules: [
@@ -51,7 +50,7 @@ module.exports = ({develop}) => ({
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "style-loader","css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       }
     ]
   },
@@ -60,7 +59,8 @@ module.exports = ({develop}) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: "./src/index.html",
+      filename: develop ? "index.html" : "[name].[contenthash].html"
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
@@ -77,4 +77,18 @@ module.exports = ({develop}) => ({
     ...esLintPlugin(develop),
   ],
   ...devServer(develop),
+  optimization: develop ? {} : {
+    minimize: true,
+    minimizer: [
+      new HtmlMinimizerPlugin({
+        parallel: true,
+      }),
+      new CssMinimizerPlugin({
+        parallel: true,
+      }),
+      new TerserPlugin({
+        parallel: true,
+      }),
+    ],
+  },
 });

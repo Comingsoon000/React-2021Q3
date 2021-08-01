@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
-// const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const devServer = (isDev) => !isDev ? {} : {
   devServer: {
@@ -65,14 +65,14 @@ module.exports = ({develop}) => ({
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    // new CopyPlugin({
-    //  patterns: [
-    //    {
-    //      from: path.resolve(__dirname, 'src/public'),
-    //      to:   path.resolve(__dirname, 'dist/public')
-    //    }
-    //  ]
-    // }),
+    new CopyPlugin({
+      patterns: [
+       {
+         from: path.resolve(__dirname, 'src/public'),
+         to:   path.resolve(__dirname, 'dist/public')
+       }
+     ]
+    }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     ...esLintPlugin(develop),
   ],

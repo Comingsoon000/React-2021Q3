@@ -1,0 +1,38 @@
+export const cards = [
+  {
+    hotel: "Cret-Berard",
+    country: "Switzerland",
+    destination: "Puidoux",
+    rating: "8.7",
+    date: "Aug 30, 2021",
+    cost: "15,335",
+    image: "Cret-Berard.jpg",
+  },
+  {
+    hotel: "Villars Mountain Lodge",
+    country: "Switzerland",
+    destination: "Villars-sur-Ollon",
+    rating: "8.6",
+    date: "Aug 30, 2021",
+    cost: "16,142",
+    image: "VillarsMountainLodge.jpg",
+  },
+  {
+    hotel: "Hotel Le Funi de Cossonay",
+    country: "Switzerland",
+    destination: "Cossonay",
+    rating: "9.0",
+    date: "Aug 30, 2021",
+    cost: "13,317",
+    image: "HotelLeFunideCossonay.jpg",
+  },
+  {
+    hotel: "Moxy Lausanne City",
+    country: "Switzerland",
+    destination: "Lausanne",
+    rating: "8.7",
+    date: "Aug 30, 2021",
+    cost: "11,219",
+    image: "MoxyLausanneCity.jpg",
+  },
+];

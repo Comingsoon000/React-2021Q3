@@ -1,0 +1,70 @@
+.cards {
+  margin: 30px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 0;
+  list-style: none;
+}
+
+.card {
+  width: 400px;
+  height: 400px;
+  margin: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 2px solid #c033c5;
+  border-radius: 10px;
+}
+
+.card__hotel {
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #c033c5;
+}
+
+.card__destination {
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+.card__image {
+  width: 400px;
+  height: 300px;
+  margin-top: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.card__rating {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 25%;
+  background-color: #c033c5;
+}
+
+.card__bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.card__cost {
+  margin-left: auto;
+  margin-right: 10px;
+}

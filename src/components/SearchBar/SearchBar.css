@@ -1,4 +1,4 @@
-.Search-Bar {
+.search-bar {
   width: 70%;
   margin-top: 2%;
   margin-left: 15%;
@@ -12,7 +12,7 @@
   box-sizing: border-box;
 }
 
-.Search-Bar__button {
+.search-bar__button {
   width: 5%;
   height: 80%;
   margin-left: 3%;
@@ -26,17 +26,17 @@
   box-sizing: border-box;
 }
 
-.Search-Bar__button:hover {
+.search-bar__button:hover {
   fill: #219752;
   cursor: pointer;
 }
 
-.Search-Bar__button-image {
+.search-bar__button-image {
   width: 80%;
   height: 80%;
 }
 
-.Search-Bar__input {
+.search-bar__input {
   width: 80%;
   height: 80%;
   margin-left: 3%;
@@ -49,7 +49,7 @@
   outline:none;
 }
 
-.Search-Bar__input:focus,
-.Search-Bar__input:hover {
+.search-bar__input:focus,
+.search-bar__input:hover {
   border-bottom: 1px solid #219752;
 }

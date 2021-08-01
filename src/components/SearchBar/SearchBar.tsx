@@ -5,9 +5,9 @@ export const SearchBar = (): JSX.Element => {
   let searchInput: HTMLInputElement;
 
   return (
-    <form className="Search-Bar">
+    <form className="search-bar">
       <button
-        className="Search-Bar__button"
+        className="search-bar__button"
         type="submit"
         onClick={(e) => {
           e.preventDefault();
@@ -15,7 +15,7 @@ export const SearchBar = (): JSX.Element => {
         }}
       >
         <svg
-          className="Search-Bar__button-image"
+          className="search-bar__button-image"
           version="1.1"
           id="Capa_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ export const SearchBar = (): JSX.Element => {
         </svg>
       </button>
       <input
-        className="Search-Bar__input"
+        className="search-bar__input"
         type="text"
         ref={(input) => {
           searchInput = input;

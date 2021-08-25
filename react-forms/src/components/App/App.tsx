@@ -1,5 +1,6 @@
 import React from "react";
+import { AppForm } from "../AppForm/AppForm";
 
 export const App = (): JSX.Element => {
-  return <div>App</div>;
+  return <AppForm/>;
 };

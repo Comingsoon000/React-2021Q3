@@ -1,0 +1,107 @@
+#data {
+  width: 300px;
+  margin: 50px auto;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #000000;
+  border-radius: 15px;
+}
+
+label {
+  padding-left: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+
+select {
+  margin: 10px 5px
+}
+
+#country {
+  width: 200px;
+  padding-left: 5px;
+  outline: none;
+  align-self: center;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.form__gender {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__birthday,
+.form__notifications {
+  margin: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form__notifications {
+  margin-left: 40px;
+  width: 220px;
+}
+
+.form__birthday {
+  margin-left: 30px;
+  width: 240px;
+}
+
+#userName {
+  width: 250px;
+  padding-left: 5px;
+  align-self: center;
+  font-size: 20px;
+  font-weight: 700;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+#male,
+#female {
+  margin: 5px;
+}
+
+#notifications {
+  width: 15px;
+  height: 15px;
+  margin: 5px 10px 3px 0;
+}
+
+#birthday {
+  font-family: Roboto;
+  font-size: 15px;
+  outline: none;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+}
+
+.form__submit {
+  width: 200px;
+  margin: 20px 50px 40px;
+  background-color: #f0c025;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+  border-radius: 5px;
+  border-color: #ffffff;
+}
+
+.form__error {
+  height: 25px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  align-self: center;
+  color: #f0c025;
+}

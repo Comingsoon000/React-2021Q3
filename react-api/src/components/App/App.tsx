@@ -1,5 +1,6 @@
 import React from "react";
+import { SearchBar } from "../SearchBar/SearchBar";
 
 export const App = (): JSX.Element => {
-  return <div>App</div>;
+  return <SearchBar />;
 };

@@ -1,6 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Article, getNews, SortBy } from "../../serverRequests/serverRequests";
+import { getNews, SortBy } from "../../serverRequests/serverRequests";
+import {
+  detailsSetArticles,
+  detailsStopLoading,
+} from "../../store/reducers/detailsReducer";
+import {
+  detailsState,
+  useAppDispatch,
+  useAppSelector,
+} from "../../store/store";
 import "../Articles/Articles.css";
 
 export const Details = (): JSX.Element => {
@@ -13,8 +22,8 @@ export const Details = (): JSX.Element => {
   const [, articleNumber] = articleParam.split("=");
   const [, query] = rest.join("+").split("=");
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [articles, setArticles] = useState<Article[]>([]);
+  const dispatch = useAppDispatch();
+  const { isLoading, articles } = useAppSelector(detailsState);
 
   const currentArticle = articles[Number(articleNumber)];
 
@@ -22,14 +31,14 @@ export const Details = (): JSX.Element => {
     try {
       getNews(query, sortBy as SortBy, Number(pageSize), Number(page)).then(
         (res) => {
-          setArticles(res.articles);
-          setIsLoading(false);
+          dispatch(detailsSetArticles({ articles: res.articles }));
+          dispatch(detailsStopLoading());
         }
       );
     } catch (err) {
       console.error(err);
     }
-  }, [page, pageSize, query, sortBy]);
+  }, [dispatch, page, pageSize, query, sortBy]);
 
   return isLoading ? (
     <div className="articles__loading">...Loading</div>

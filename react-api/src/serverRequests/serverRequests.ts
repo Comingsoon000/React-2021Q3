@@ -12,7 +12,7 @@ export interface Article {
 export type SortBy = "relevancy" | "popularity" | "publishedAt";
 
 const url = "https://newsapi.org/v2/everything?";
-const apiKey = "e25879545cbd4169a7b4c79c598bf08f";
+const apiKey = "95372cb6caed4f47ba882d44281621ad";
 
 export const getNews = async (
   query: string,

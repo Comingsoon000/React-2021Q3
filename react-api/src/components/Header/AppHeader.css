@@ -1,0 +1,28 @@
+.header {
+  height: 30px;
+}
+
+.header__list {
+  width: 60%;
+  height: 100%;
+  margin: 20px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  font-size: 20px;
+}
+
+.header__item {
+  margin: 0 20px;
+}
+
+.header__link {
+  color: #c033c5;
+}
+
+.header__link_active {
+  color: #219752;
+}

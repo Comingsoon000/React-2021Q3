@@ -101,7 +101,14 @@ export const SearchBar = (): JSX.Element => {
           pageSizeHandler={pageSizeHandler}
         />
       </div>
-      <Articles articles={articles} isLoading={isLoading} />
+      <Articles
+        articles={articles}
+        isLoading={isLoading}
+        query={searchInput}
+        sortBy={sortBy}
+        page={page}
+        pageSize={pageSize}
+      />
     </div>
   );
 };

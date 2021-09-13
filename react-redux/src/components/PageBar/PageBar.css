@@ -1,0 +1,23 @@
+.page-bar__buttons {
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 18px;
+}
+
+.page-bar__pageSize,
+.page-bar__page {
+  width: 25px;
+  margin-left: 10px;
+}
+
+.page-bar__page::-webkit-outer-spin-button,
+.page-bar__page::-webkit-inner-spin-button,
+.page-bar__pageSize::-webkit-outer-spin-button,
+.page-bar__pageSize::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

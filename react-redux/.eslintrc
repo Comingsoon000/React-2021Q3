@@ -33,9 +33,6 @@
     "indent": ["warn", 2, {
       "SwitchCase": 1
     }],
-    "@typescript-eslint/indent": ["warn", 2, {
-      "SwitchCase": 1
-    }],
     "prettier/prettier": ["error"],
     "import/prefer-default-export": "off",
     "no-param-reassign": ["error", {

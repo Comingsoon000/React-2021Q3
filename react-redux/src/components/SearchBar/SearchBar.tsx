@@ -1,27 +1,38 @@
 import "./SearchBar.css";
-import React, { useState } from "react";
-import { Article, getNews, SortBy } from "../../serverRequests/serverRequests";
+import React from "react";
+import { getNews, SortBy } from "../../serverRequests/serverRequests";
 import { Articles } from "../Articles/Articles";
 import { SortBar } from "../SortBar/SortBar";
 import { PageBar } from "../PageBar/PageBar";
+import {
+  searchBarState,
+  useAppDispatch,
+  useAppSelector,
+} from "../../store/store";
+import {
+  searchBarSetArticles,
+  searchBarSetPage,
+  searchBarSetPageSize,
+  searchBarSetSearchInput,
+  searchBarSetSortBy,
+  searchBarStartLoading,
+  searchBarStopLoading,
+} from "../../store/reducers/searchBarReducer";
 
 export const SearchBar = (): JSX.Element => {
-  const [searchInput, setSearchInput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [sortBy, setSortBy] = useState<SortBy>("relevancy");
-  const [page, setPage] = useState<number | string>(1);
-  const [pageSize, setPageSize] = useState<number | string>(5);
+  const dispatch = useAppDispatch();
+  const { isLoading, articles, searchInput, sortBy, pageSize, page } =
+    useAppSelector(searchBarState);
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setSearchInput(e.target.value);
+    dispatch(searchBarSetSearchInput({ searchInput: e.target.value }));
   };
 
   const submitHandler = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setIsLoading(true);
+    dispatch(searchBarStartLoading());
     try {
       const result = await getNews(
         searchInput,
@@ -29,24 +40,24 @@ export const SearchBar = (): JSX.Element => {
         pageSize as number,
         page as number
       );
-      setArticles(result.articles);
+      dispatch(searchBarSetArticles({ articles: result.articles }));
     } catch (err) {
       console.error(err);
     } finally {
-      setIsLoading(false);
+      dispatch(searchBarStopLoading());
     }
   };
 
   const sortHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSortBy(e.target.id as SortBy);
+    dispatch(searchBarSetSortBy({ sortBy: e.target.id as SortBy }));
   };
 
   const pageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPage(e.target.value);
+    dispatch(searchBarSetPage({ page: e.target.value }));
   };
 
   const pageSizeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPageSize(e.target.value);
+    dispatch(searchBarSetPageSize({ pageSize: e.target.value }));
   };
 
   return (
